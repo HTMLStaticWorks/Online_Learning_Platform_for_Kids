@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Access your KidQuest student or parent dashboard. Log in to claim daily streaks, adjust study time limits, and check milestones.">
+  <title>Dashboard Portal - KidQuest Academy</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  
+  <!-- Theme Toggle Handler -->
+  <script src="assets/js/theme-toggle.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%232563EB%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z%22/><path d=%22m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z%22/><path d=%22M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0%22/><path d=%22M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5%22/></svg>">
+</head>
+<body>
+
+  <!-- Top Right Float Controls -->
+  <div class="position-absolute top-0 end-0 p-3 d-flex gap-2 align-items-center" style="z-index: 1050;">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+      <svg class="sun-icon d-none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+    <!-- RTL Toggle Button -->
+    <button class="rtl-toggle-btn" aria-label="Toggle RTL layout direction">RTL</button>
+  </div>
+
+  <!-- Login Area Wrapper (hides upon submission) -->
+  <section class="py-5" id="loginFormSection">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-5">
+          <div class="glass-card rounded-4 p-4 p-md-5 border text-dark">
+            <div class="text-center mb-4">
+              <a class="navbar-brand kids-font d-inline-flex align-items-center gap-2 mb-2 text-primary" href="index.html">
+                <svg class="brand-logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> KidQuest
+              </a>
+              <h2 class="kids-font h4 mb-0 text-gradient-primary">Portal Login</h2>
+            </div>
+            
+            <!-- Role Toggle Tab -->
+            <ul class="nav nav-pills nav-fill mb-4 p-1 bg-light rounded-pill" id="roleTabs" role="tablist">
+              <li class="nav-item">
+                <button class="nav-link active rounded-pill kids-font font-13 py-2" id="studentTab" data-bs-toggle="pill" data-bs-target="#studentPanel" type="button">🧸 Student</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link rounded-pill kids-font font-13 py-2" id="parentTab" data-bs-toggle="pill" data-bs-target="#parentPanel" type="button">👨‍👩‍👧 Parent</button>
+              </li>
+            </ul>
+
+            <!-- Login Form -->
+            <form id="portalLoginForm">
+              <div class="tab-content" id="roleTabContent">
+                <!-- Student login inputs -->
+                <div class="tab-pane fade show active" id="studentPanel" role="tabpanel">
+                  <div class="mb-3">
+                    <label for="studentUser" class="form-label small text-secondary">Student Nickname / Username</label>
+                    <input type="text" id="studentUser" class="form-control rounded-pill px-3 py-2" value="AlexCoder">
+                  </div>
+                  <div class="mb-3">
+                    <label for="studentPin" class="form-label small text-secondary">4-Digit Security PIN</label>
+                    <input type="password" id="studentPin" class="form-control rounded-pill px-3 py-2" placeholder="••••" value="1234">
+                  </div>
+                </div>
+                
+                <!-- Parent login inputs -->
+                <div class="tab-pane fade" id="parentPanel" role="tabpanel">
+                  <div class="mb-3">
+                    <label for="parentEmail" class="form-label small text-secondary">Parent Email address</label>
+                    <input type="email" id="parentEmail" class="form-control rounded-pill px-3 py-2" value="parent@kidquestacademy.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="parentPass" class="form-label small text-secondary">Password</label>
+                    <input type="password" id="parentPass" class="form-control rounded-pill px-3 py-2" placeholder="••••••••" value="password123">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remember Me & Forgot Password -->
+              <div class="d-flex align-items-center justify-content-between my-3 small">
+                <div class="form-check mb-0">
+                  <input class="form-check-input" type="checkbox" id="rememberMe">
+                  <label class="form-check-label text-secondary" for="rememberMe">
+                    Remember me
+                  </label>
+                </div>
+                <a href="#" class="text-primary text-decoration-none" onclick="alert('Password reset link sent to your registered email!')">Forgot password?</a>
+              </div>
+
+              <div class="mt-4">
+                <button type="submit" class="btn btn-custom btn-custom-primary w-100 justify-content-center">Sign In safely 🚀</button>
+              </div>
+            </form>
+
+            <div class="text-center my-3">
+              <span class="small text-muted">or continue with</span>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-light rounded-pill w-100 d-inline-flex align-items-center justify-content-center gap-2 border py-2" onclick="alert('Google Auth Integration Mocked!')">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5.04c1.62 0 3.08.56 4.22 1.65l3.15-3.15C17.45 1.76 14.94 1 12 1 7.35 1 3.39 3.67 1.42 7.57l3.79 2.94C6.1 7.54 8.84 5.04 12 5.04z"/><path fill="#4285F4" d="M23.49 12.27c0-.81-.07-1.59-.2-2.35H12v4.51h6.48c-.29 1.48-1.14 2.73-2.4 3.58l3.7 2.87c2.16-1.99 3.41-4.92 3.41-8.61z"/><path fill="#FBBC05" d="M5.21 10.51c-.24-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29L1.42 2.99C.51 4.79 0 6.81 0 8.94s.51 4.15 1.42 5.95l3.79-2.94c-.24-.72-.38-1.49-.38-2.29z"/><path fill="#34A853" d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.7-2.87c-1.03.69-2.35 1.11-4.26 1.11-3.16 0-5.9-2.5-6.89-5.47L1.42 15.8C3.39 19.7 7.35 23 12 23z"/></svg>
+                <span class="small font-weight-bold text-dark">Google</span>
+              </button>
+              <button type="button" class="btn btn-light rounded-pill w-100 d-inline-flex align-items-center justify-content-center gap-2 border py-2" onclick="alert('Apple Auth Integration Mocked!')">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#000000" d="M17.05 20.28c-.98.95-2.05 1.88-3.08 1.88-1.02 0-1.39-.62-2.54-.62s-1.57.6-2.52.62c-.99.02-2.14-.99-3.15-1.97-2.07-2.02-3.66-5.7-3.66-9.15 0-5.47 3.58-8.38 7.02-8.38 1.09 0 2.11.75 2.78.75.66 0 1.91-.91 3.23-.77.55.02 2.1.22 3.1 1.68-.08.05-1.85 1.08-1.85 3.23 0 2.58 2.1 3.49 2.13 3.51-.02.06-.33 1.15-1.12 2.3-.68.99-1.39 1.97-2.38 1.97-.99 0-1.31-.61-2.45-.61s-1.49.59-2.44.61c-.97.02-1.82-.9-2.61-1.92M15.03 4.2c1.13-1.37 1.89-3.28 1.68-5.2-1.65.07-3.65 1.1-4.83 2.48-1.03 1.2-1.93 3.14-1.69 5.03 1.84.14 3.71-.94 4.84-2.31z"/></svg>
+                <span class="small font-weight-bold text-dark">Apple</span>
+              </button>
+            </div>
+            
+            <p class="small text-center text-muted mt-3 mb-0">Don't have a plan? <a href="signup.html">Create free account</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === STUDENT DASHBOARD INTERFACE (SIMULATOR) === -->
+  <section class="py-5 d-none" id="studentDashboardSection">
+    <div class="container text-dark">
+      <div class="row g-4">
+        <!-- Sidebar Navigation -->
+        <aside class="col-lg-3">
+          <div class="dashboard-sidebar">
+            <div class="text-center mb-4">
+              <span class="fs-1 d-block">🧸</span>
+              <h3 class="kids-font h4 mb-0">AlexCoder</h3>
+              <span class="small text-muted">Student Profile</span>
+            </div>
+            
+            <div class="d-grid gap-2">
+              <button class="dashboard-nav-item active" data-tab="courses">📚 My Courses</button>
+              <button class="dashboard-nav-item" data-tab="achievements">🏆 Achievements</button>
+              <button class="dashboard-nav-item" data-tab="mission">🎯 Daily Mission</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Dashboard View Panels -->
+        <main class="col-lg-9">
+          <!-- Courses Panel -->
+          <div class="dashboard-panel" id="panel-courses">
+            <h2 class="kids-font display-6 mb-4 text-gradient-primary">My Active Learning Paths</h2>
+            
+            <div class="row g-4">
+              <!-- Scratch Block Course -->
+              <div class="col-md-6">
+                <div class="course-card">
+                  <div class="course-image-box">
+                    <span class="course-tag bg-subject-coding">Coding</span>
+                    <span class="course-age-badge">Ages 7-9</span>
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Coding games visual blocks" loading="lazy">
+                  </div>
+                  <div class="course-body">
+                    <h3 class="course-title h5 text-dark">Scratch Block Academy</h3>
+                    <div class="d-flex justify-content-between small text-secondary mb-2">
+                      <span>Course Progress</span>
+                      <strong>60% Complete</strong>
+                    </div>
+                    <div class="learning-progress-bar mb-3">
+                      <div class="learning-progress-fill" style="width: 60%"></div>
+                    </div>
+                    <a href="course-details.html" class="btn btn-custom btn-custom-accent w-100 justify-content-center btn-sm">Keep Learning! ▶</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Math Wizardry (Completed Example for Certificate) -->
+              <div class="col-md-6">
+                <div class="course-card">
+                  <div class="course-image-box">
+                    <span class="course-tag bg-subject-math">Math</span>
+                    <span class="course-age-badge">Ages 4-6</span>
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80" alt="Early addition cards math" loading="lazy">
+                  </div>
+                  <div class="course-body">
+                    <h3 class="course-title h5 text-dark">Math Puzzle Land: Early Math</h3>
+                    <div class="d-flex justify-content-between small text-secondary mb-2">
+                      <span>Course Progress</span>
+                      <strong class="text-success">Completed!</strong>
+                    </div>
+                    <div class="learning-progress-bar mb-3">
+                      <div class="learning-progress-fill" style="width: 100%; background: var(--success)"></div>
+                    </div>
+                    <button class="btn btn-custom btn-custom-primary w-100 justify-content-center btn-sm print-cert-btn" data-course="Math Puzzle Land: Early Math">Print Achievement Certificate 🎓</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements Panel -->
+          <div class="dashboard-panel d-none" id="panel-achievements">
+            <h2 class="kids-font display-6 mb-4 text-gradient-accent">My Achievement Chest</h2>
+            
+            <div class="row g-3">
+              <div class="col-sm-4 text-center">
+                <div class="badge-card">
+                  <div class="badge-icon-box">🧮</div>
+                  <strong class="d-block small">Math Wizard Badge</strong>
+                  <span class="text-success small font-11">Earned!</span>
+                </div>
+              </div>
+              <div class="col-sm-4 text-center">
+                <div class="badge-card">
+                  <div class="badge-icon-box">💻</div>
+                  <strong class="d-block small">Coding Cadet</strong>
+                  <span class="text-success small font-11">Earned!</span>
+                </div>
+              </div>
+              <div class="col-sm-4 text-center">
+                <div class="badge-card" style="opacity: 0.5;">
+                  <div class="badge-icon-box" style="filter: grayscale(1);">🧬</div>
+                  <strong class="d-block small">Science Explorer</strong>
+                  <span class="text-muted small font-11">Locked</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Streak Reward Integration -->
+            <div class="glass-card rounded-4 p-4 border mt-4 text-center">
+              <h4 class="kids-font mb-2">Daily Streak Tracker</h4>
+              <p class="small text-secondary mb-3">Learn for 15 minutes daily to claiming rewards.</p>
+              <div class="streak-badge-large animate-streak justify-content-center mx-auto mb-3" style="max-width: 320px;">
+                <span class="fs-2">🔥</span>
+                <span class="kids-font h4 mb-0 text-white"><span id="streakCount">5</span> Days Streak!</span>
+              </div>
+              <button id="claimRewardBtn" class="btn btn-custom btn-custom-accent">Claim Reward Gold 🪙</button>
+            </div>
+          </div>
+
+          <!-- Mission Panel -->
+          <div class="dashboard-panel d-none" id="panel-mission">
+            <h2 class="kids-font display-6 mb-4 text-gradient-primary">Alex's Daily Quests</h2>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>✔️ Complete 1 Scratch coding level</span>
+                <span class="badge bg-success">Done +50 XP</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>✔️ Run 1 Physics experiment animation</span>
+                <span class="badge bg-success">Done +30 XP</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center text-muted">
+                <span>🧩 Score 100% on Addition Quiz</span>
+                <span class="badge bg-secondary">Incomplete</span>
+              </li>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- === PARENT DASHBOARD INTERFACE (SIMULATOR) === -->
+  <section class="py-5 d-none" id="parentDashboardSection">
+    <div class="container text-dark">
+      <div class="row g-4">
+        <!-- Sidebar Navigation -->
+        <aside class="col-lg-3">
+          <div class="parent-sidebar">
+            <div class="text-center mb-4">
+              <span class="fs-1 d-block">👨‍👩‍👧</span>
+              <h3 class="kids-font h4 mb-0">Parent Portal</h3>
+              <span class="small text-muted">Administrator</span>
+            </div>
+            
+            <div class="d-grid gap-2">
+              <button class="dashboard-nav-item active" data-tab="overview">📊 Child Overview</button>
+              <button class="dashboard-nav-item" data-tab="limits">⏱️ Study Limits</button>
+              <button class="dashboard-nav-item" data-tab="safety">🛡️ Safety Controls</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Dashboard View Panels -->
+        <main class="col-lg-9">
+          <!-- Child Overview Panel -->
+          <div class="parent-panel" id="parent-panel-overview">
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+              <h2 class="kids-font display-6 mb-0 text-gradient-primary">Child Performance Logs</h2>
+              
+              <!-- Sibling profile switcher -->
+              <select id="childSelector" class="form-select rounded-pill px-3 py-2 mt-2 mt-sm-0" style="width: auto;">
+                <option value="emma">Emma (Ages 4-6)</option>
+                <option value="leo" selected>Leo (Ages 7-9)</option>
+              </select>
+            </div>
+
+            <!-- Emma Courses Taught (Default Hidden since Leo is selected) -->
+            <div id="emmaCourses" class="row g-4 d-none">
+              <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 border">
+                  <h4 class="kids-font text-primary h5">Math Puzzle Land: Early Math</h4>
+                  <p class="small text-secondary mb-3">Enrolled on Aug 01, 2026</p>
+                  <div class="d-flex justify-content-between small mb-1">
+                    <span>Quiz Scores: <strong>100%</strong></span>
+                    <span>Progress: <strong>100%</strong></span>
+                  </div>
+                  <div class="learning-progress-bar">
+                    <div class="learning-progress-fill" style="width: 100%; background: var(--success)"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leo Courses Taught (Default Active) -->
+            <div id="leoCourses" class="row g-4">
+              <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 border">
+                  <h4 class="kids-font text-primary h5">Scratch Block Academy</h4>
+                  <p class="small text-secondary mb-3">Enrolled on Aug 08, 2026</p>
+                  <div class="d-flex justify-content-between small mb-1">
+                    <span>Quiz Scores: <strong>85%</strong></span>
+                    <span>Progress: <strong>60%</strong></span>
+                  </div>
+                  <div class="learning-progress-bar">
+                    <div class="learning-progress-fill" style="width: 60%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Study limits panel -->
+          <div class="parent-panel d-none" id="parent-panel-limits">
+            <h2 class="kids-font display-6 mb-4 text-gradient-accent">Daily Screen Time Allocator</h2>
+            <p class="text-secondary mb-4">Set time allocation limits per child. When they exceed this study timer limit, our portal restricts courses dynamically.</p>
+            
+            <div class="p-4 bg-light rounded-4 border">
+              <h4 class="kids-font text-dark h5 mb-3">Set Limits for <span class="selected-child-name">Leo</span></h4>
+              
+              <div class="mb-4">
+                <label for="studyTimeLimit" class="form-label d-flex justify-content-between">
+                  <span>Daily Study Limit:</span>
+                  <strong id="timeLimitVal" class="text-primary">45 minutes</strong>
+                </label>
+                <input type="range" class="form-range" id="studyTimeLimit" min="15" max="120" step="15" value="45">
+              </div>
+              
+              <button id="saveLimitsBtn" class="btn btn-custom btn-custom-accent">Save Time Settings</button>
+            </div>
+          </div>
+
+          <!-- Safety Override Controls panel -->
+          <div class="parent-panel d-none" id="parent-panel-safety">
+            <h2 class="kids-font display-6 mb-4 text-gradient-primary">Safety Customizations</h2>
+            
+            <form id="safetyControlsForm" class="p-4 bg-light rounded-4 border">
+              <h4 class="kids-font h5 mb-3">Oversight Preferences</h4>
+              
+              <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" id="emailReports" checked>
+                <label class="form-check-label" for="emailReports">Send weekly progress reports via email</label>
+              </div>
+
+              <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" id="blockCreative" checked>
+                <label class="form-check-label" for="blockCreative">Safe Chat Moderation Audits active</label>
+              </div>
+
+              <div class="form-check form-switch mb-4">
+                <input class="form-check-input" type="checkbox" id="restrictCategories">
+                <label class="form-check-label" for="restrictCategories">Block non-math courses categories</label>
+              </div>
+
+              <button type="submit" class="btn btn-custom btn-custom-primary">Save Preferences</button>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/student-dashboard.js"></script>
+  <script src="assets/js/parent-dashboard.js"></script>
+  
+  <!-- Simulated portal session handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('portalLoginForm');
+      const loginFormSection = document.getElementById('loginFormSection');
+      const studentSection = document.getElementById('studentDashboardSection');
+      const parentSection = document.getElementById('parentDashboardSection');
+      
+      const activeTabBtn = () => {
+        const activeLink = document.querySelector('#roleTabs .nav-link.active');
+        return activeLink ? activeLink.id : 'studentTab';
+      };
+
+      // Set role if redirected from links
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type');
+      if (typeParam === 'parent') {
+        const parentTabTrigger = document.getElementById('parentTab');
+        if (parentTabTrigger) {
+          const bsTab = new bootstrap.Tab(parentTabTrigger);
+          bsTab.show();
+        }
+      }
+
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        loginFormSection.classList.add('d-none');
+        
+        if (activeTabBtn() === 'studentTab') {
+          studentSection.classList.remove('d-none');
+        } else {
+          parentSection.classList.remove('d-none');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

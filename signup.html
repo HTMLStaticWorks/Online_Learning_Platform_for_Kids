@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign up for KidQuest Academy. Create parent and student profiles, choose avatars, and start interactive learning trails today.">
+  <title>Sign Up - KidQuest Academy</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  
+  <!-- Theme Toggle Handler -->
+  <script src="assets/js/theme-toggle.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%232563EB%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z%22/><path d=%22m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z%22/><path d=%22M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0%22/><path d=%22M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5%22/></svg>">
+</head>
+<body>
+
+  <!-- Top Right Float Controls -->
+  <div class="position-absolute top-0 end-0 p-3 d-flex gap-2 align-items-center" style="z-index: 1050;">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+      <svg class="sun-icon d-none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+    <!-- RTL Toggle Button -->
+    <button class="rtl-toggle-btn" aria-label="Toggle RTL layout direction">RTL</button>
+  </div>
+
+  <!-- Signup Form Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-5">
+          <div class="glass-card rounded-4 p-4 p-md-5 border text-dark">
+            <div class="text-center mb-4">
+              <a class="navbar-brand kids-font d-inline-flex align-items-center gap-2 mb-2 text-primary" href="index.html">
+                <svg class="brand-logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> KidQuest
+              </a>
+              <h2 class="kids-font h4 mb-0 text-gradient-primary">Create Account</h2>
+            </div>
+            
+            <form id="signupForm" onsubmit="event.preventDefault(); alert('Account successfully created! Please log in on the Portal.'); window.location.href='login.html';">
+              <!-- Step 1: Parent details (safety gate) -->
+              <div class="mb-4">
+                <h4 class="kids-font h5 text-primary">1. Parent Information</h4>
+                <div class="mb-3">
+                  <label for="pName" class="form-label small text-secondary">Parent Full Name *</label>
+                  <input type="text" id="pName" class="form-control rounded-pill px-3 py-2" placeholder="e.g. Marcus Vance" required>
+                </div>
+                <div class="mb-3">
+                  <label for="pEmail" class="form-label small text-secondary">Parent Email Address *</label>
+                  <input type="email" id="pEmail" class="form-control rounded-pill px-3 py-2" placeholder="e.g. parent@email.com" required>
+                  <span class="small text-muted font-11">Required for progress summaries and security configurations.</span>
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              <!-- Step 2: Student details -->
+              <div class="mb-4">
+                <h4 class="kids-font h5 text-secondary">2. Student Profile</h4>
+                
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <label for="sUser" class="form-label small text-secondary">Nickname / Username *</label>
+                    <input type="text" id="sUser" class="form-control rounded-pill px-3 py-2" placeholder="e.g. AlexCoder" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="sAge" class="form-label small text-secondary">Age *</label>
+                    <select id="sAge" class="form-select rounded-pill px-3 py-2" required>
+                      <option value="" disabled selected>Select age</option>
+                      <option value="4-6">4 - 6 Years</option>
+                      <option value="7-9">7 - 9 Years</option>
+                      <option value="10-12">10 - 12 Years</option>
+                      <option value="13-15">13 - 15 Years</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Avatar Selector -->
+                <div class="mb-3">
+                  <span class="form-label small text-secondary d-block mb-2">Choose Avatar</span>
+                  <div class="d-flex gap-3 justify-content-center">
+                    <input type="radio" name="avatar" id="av1" value="teddy" class="d-none" checked>
+                    <label for="av1" class="avatar-select-label fs-1 cursor-pointer p-2 border rounded-circle" onclick="selectAvatar(this)">🧸</label>
+                    
+                    <input type="radio" name="avatar" id="av2" value="rocket" class="d-none">
+                    <label for="av2" class="avatar-select-label fs-1 cursor-pointer p-2 border rounded-circle" onclick="selectAvatar(this)">🚀</label>
+                    
+                    <input type="radio" name="avatar" id="av3" value="fox" class="d-none">
+                    <label for="av3" class="avatar-select-label fs-1 cursor-pointer p-2 border rounded-circle" onclick="selectAvatar(this)">🦊</label>
+
+                    <input type="radio" name="avatar" id="av4" value="koala" class="d-none">
+                    <label for="av4" class="avatar-select-label fs-1 cursor-pointer p-2 border rounded-circle" onclick="selectAvatar(this)">🐨</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Safety Agreement -->
+              <div class="form-check mb-4 small text-secondary">
+                <input class="form-check-input" type="checkbox" id="agreeSafety" required>
+                <label class="form-check-label" for="agreeSafety">
+                  I agree that I am a parent/guardian and accept the platform privacy safety policies.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-custom btn-custom-accent w-100 justify-content-center">Create Accounts 🚀</button>
+            </form>
+
+            <div class="text-center my-3">
+              <span class="small text-muted">or continue with</span>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-light rounded-pill w-100 d-inline-flex align-items-center justify-content-center gap-2 border py-2" onclick="alert('Google Auth Integration Mocked!')">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5.04c1.62 0 3.08.56 4.22 1.65l3.15-3.15C17.45 1.76 14.94 1 12 1 7.35 1 3.39 3.67 1.42 7.57l3.79 2.94C6.1 7.54 8.84 5.04 12 5.04z"/><path fill="#4285F4" d="M23.49 12.27c0-.81-.07-1.59-.2-2.35H12v4.51h6.48c-.29 1.48-1.14 2.73-2.4 3.58l3.7 2.87c2.16-1.99 3.41-4.92 3.41-8.61z"/><path fill="#FBBC05" d="M5.21 10.51c-.24-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29L1.42 2.99C.51 4.79 0 6.81 0 8.94s.51 4.15 1.42 5.95l3.79-2.94c-.24-.72-.38-1.49-.38-2.29z"/><path fill="#34A853" d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.7-2.87c-1.03.69-2.35 1.11-4.26 1.11-3.16 0-5.9-2.5-6.89-5.47L1.42 15.8C3.39 19.7 7.35 23 12 23z"/></svg>
+                <span class="small font-weight-bold text-dark">Google</span>
+              </button>
+              <button type="button" class="btn btn-light rounded-pill w-100 d-inline-flex align-items-center justify-content-center gap-2 border py-2" onclick="alert('Apple Auth Integration Mocked!')">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#000000" d="M17.05 20.28c-.98.95-2.05 1.88-3.08 1.88-1.02 0-1.39-.62-2.54-.62s-1.57.6-2.52.62c-.99.02-2.14-.99-3.15-1.97-2.07-2.02-3.66-5.7-3.66-9.15 0-5.47 3.58-8.38 7.02-8.38 1.09 0 2.11.75 2.78.75.66 0 1.91-.91 3.23-.77.55.02 2.1.22 3.1 1.68-.08.05-1.85 1.08-1.85 3.23 0 2.58 2.1 3.49 2.13 3.51-.02.06-.33 1.15-1.12 2.3-.68.99-1.39 1.97-2.38 1.97-.99 0-1.31-.61-2.45-.61s-1.49.59-2.44.61c-.97.02-1.82-.9-2.61-1.92M15.03 4.2c1.13-1.37 1.89-3.28 1.68-5.2-1.65.07-3.65 1.1-4.83 2.48-1.03 1.2-1.93 3.14-1.69 5.03 1.84.14 3.71-.94 4.84-2.31z"/></svg>
+                <span class="small font-weight-bold text-dark">Apple</span>
+              </button>
+            </div>
+
+            <p class="small text-center text-muted mt-3 mb-0">Already have an account? <a href="login.html">Log In</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS Scripts -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Avatar Styling Helper -->
+  <style>
+    .avatar-select-label {
+      transition: all var(--transition-fast);
+    }
+    input[type="radio"]:checked + .avatar-select-label {
+      border-color: var(--primary) !important;
+      background-color: rgba(37, 99, 235, 0.05);
+      transform: scale(1.15);
+    }
+  </style>
+
+  <script>
+    function selectAvatar(el) {
+      document.querySelectorAll('.avatar-select-label').forEach(lbl => {
+        lbl.style.borderColor = 'rgba(0,0,0,0.1)';
+      });
+      el.style.borderColor = 'var(--primary)';
+    }
+  </script>
+</body>
+</html>

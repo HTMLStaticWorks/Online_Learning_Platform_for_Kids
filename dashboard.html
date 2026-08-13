@@ -1,0 +1,414 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Access your KidQuest student dashboard. Track learning paths, complete quizzes, review achievements, and check daily streaks.">
+  <title>Student Dashboard - KidQuest Academy</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  
+  <!-- Theme Toggle Handler -->
+  <script src="assets/js/theme-toggle.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%232563EB%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z%22/><path d=%22m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z%22/><path d=%22M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0%22/><path d=%22M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5%22/></svg>">
+</head>
+<body>
+
+  <!-- Simplified Dashboard Header/Navbar -->
+  <nav class="navbar custom-navbar py-3 sticky-top">
+    <div class="container-fluid px-4">
+      <!-- Left side: Brand -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <svg class="brand-logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> KidQuest
+      </a>
+      
+      <!-- Right side controls -->
+      <div class="d-flex align-items-center gap-3">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+          <svg class="sun-icon d-none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <!-- RTL Toggle Button -->
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL layout direction">RTL</button>
+        
+        <!-- Profile Dropdown -->
+        <div class="dropdown">
+          <button class="btn btn-link p-0 border-0 d-flex align-items-center gap-2 text-decoration-none" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="fs-3">🧸</span>
+            <span class="small kids-font text-dark d-none d-sm-inline-block">Alex</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end mt-2 rounded-3 shadow border" aria-labelledby="profileDropdown">
+            <li><h6 class="dropdown-header small text-muted">Signed in as Alex</h6></li>
+            <li><a class="dropdown-item small" href="login.html?type=parent">👨‍👩‍👧 Parent Portal</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item small text-danger font-weight-bold" href="login.html">Logout 🚪</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Panel Section -->
+  <section class="py-5 bg-light-grain">
+    <div class="container text-dark">
+      <div class="row g-4">
+        <!-- Sidebar Navigation -->
+        <aside class="col-lg-3">
+          <div class="dashboard-sidebar">
+            <div class="text-center mb-4">
+              <span class="fs-1 d-block">🧸</span>
+              <h3 class="kids-font h4 mb-0 text-primary">AlexCoder</h3>
+              <span class="badge bg-subject-coding rounded-pill px-3 py-1 font-11 mt-2">Level 5 Explorer 🚀</span>
+            </div>
+            
+            <div class="d-grid gap-2">
+              <button class="dashboard-nav-item active" data-tab="courses">📚 My Courses</button>
+              <button class="dashboard-nav-item" data-tab="quiz">🧠 Quizzes & Trivia</button>
+              <button class="dashboard-nav-item" data-tab="achievements">🏆 Achievements</button>
+              <button class="dashboard-nav-item" data-tab="mission">🎯 Daily Mission</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Dashboard View Panels -->
+        <main class="col-lg-9">
+          
+          <!-- Courses Panel -->
+          <div class="dashboard-panel" id="panel-courses">
+            <h2 class="kids-font display-6 mb-4 text-gradient-primary">My Active Learning Paths</h2>
+            
+            <div class="row g-4">
+              <!-- Scratch Block Course -->
+              <div class="col-md-6">
+                <div class="course-card">
+                  <div class="course-image-box">
+                    <span class="course-tag bg-subject-coding">Coding</span>
+                    <span class="course-age-badge">Ages 7-9</span>
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Coding games visual blocks" loading="lazy">
+                  </div>
+                  <div class="course-body">
+                    <h3 class="course-title h5 text-dark">Scratch Block Academy</h3>
+                    <div class="d-flex justify-content-between small text-secondary mb-2">
+                      <span>Course Progress</span>
+                      <strong>60% Complete</strong>
+                    </div>
+                    <div class="learning-progress-bar mb-3">
+                      <div class="learning-progress-fill" style="width: 60%"></div>
+                    </div>
+                    <a href="course-details.html" class="btn btn-custom btn-custom-accent w-100 justify-content-center btn-sm">Keep Learning! ▶</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Math Wizardry -->
+              <div class="col-md-6">
+                <div class="course-card">
+                  <div class="course-image-box">
+                    <span class="course-tag bg-subject-math">Math</span>
+                    <span class="course-age-badge">Ages 4-6</span>
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80" alt="Early addition cards math" loading="lazy">
+                  </div>
+                  <div class="course-body">
+                    <h3 class="course-title h5 text-dark">Math Puzzle Land: Early Math</h3>
+                    <div class="d-flex justify-content-between small text-secondary mb-2">
+                      <span>Course Progress</span>
+                      <strong class="text-success">Completed!</strong>
+                    </div>
+                    <div class="learning-progress-bar mb-3">
+                      <div class="learning-progress-fill" style="width: 100%; background: var(--success)"></div>
+                    </div>
+                    <button class="btn btn-custom btn-custom-primary w-100 justify-content-center btn-sm print-cert-btn" data-course="Math Puzzle Land: Early Math">Print Achievement Certificate 🎓</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quiz Panel -->
+          <div class="dashboard-panel d-none" id="panel-quiz">
+            <h2 class="kids-font display-6 mb-4 text-gradient-accent">🧠 Quizzes & Trivia</h2>
+            
+            <div class="glass-card rounded-4 p-4 p-md-5 border" id="quizContainer">
+              <div id="quiz-question-box">
+                <span class="badge bg-secondary mb-2" id="questionNum">Question 1 of 2</span>
+                <h4 class="kids-font mb-4" id="questionText">Which coding block in Scratch is used to make a character repeat actions forever?</h4>
+                
+                <div class="d-grid gap-3 mb-4" id="optionsContainer">
+                  <button class="btn btn-outline-primary text-start rounded-pill py-2 px-3 option-btn" onclick="selectOption(this, false)">A) "move 10 steps" block</button>
+                  <button class="btn btn-outline-primary text-start rounded-pill py-2 px-3 option-btn" onclick="selectOption(this, true)">B) "forever" loop block</button>
+                  <button class="btn btn-outline-primary text-start rounded-pill py-2 px-3 option-btn" onclick="selectOption(this, false)">C) "when green flag clicked" block</button>
+                  <button class="btn btn-outline-primary text-start rounded-pill py-2 px-3 option-btn" onclick="selectOption(this, false)">D) "say Hello" block</button>
+                </div>
+                
+                <button class="btn btn-custom btn-custom-accent w-100 justify-content-center" id="submitQuizBtn" onclick="checkAnswer()" disabled>Submit Answer 🚀</button>
+              </div>
+              
+              <div id="quiz-feedback-box" class="d-none text-center py-4">
+                <span class="display-3 mb-2 d-block" id="feedbackEmoji">🎉</span>
+                <h3 class="kids-font" id="feedbackTitle">Great Job, Wizard!</h3>
+                <p class="text-secondary small mb-4" id="feedbackText">You got the correct answer: <strong>"forever" loop block</strong>! You earned <strong>+50 XP</strong>!</p>
+                <button class="btn btn-custom btn-custom-primary justify-content-center" id="nextQuizBtn" onclick="nextQuestion()">Next Quiz Question ➡️</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements Panel -->
+          <div class="dashboard-panel d-none" id="panel-achievements">
+            <h2 class="kids-font display-6 mb-4 text-gradient-accent">My Achievement Chest</h2>
+            
+            <div class="row g-3">
+              <div class="col-sm-4 text-center">
+                <div class="badge-card">
+                  <div class="badge-icon-box">🧮</div>
+                  <strong class="d-block small">Math Wizard Badge</strong>
+                  <span class="text-success small font-11">Earned!</span>
+                </div>
+              </div>
+              <div class="col-sm-4 text-center">
+                <div class="badge-card">
+                  <div class="badge-icon-box">💻</div>
+                  <strong class="d-block small">Coding Cadet</strong>
+                  <span class="text-success small font-11">Earned!</span>
+                </div>
+              </div>
+              <div class="col-sm-4 text-center">
+                <div class="badge-card" style="opacity: 0.5;">
+                  <div class="badge-icon-box" style="filter: grayscale(1);">🧬</div>
+                  <strong class="d-block small">Science Explorer</strong>
+                  <span class="text-muted small font-11">Locked</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Streak Reward Integration -->
+            <div class="glass-card rounded-4 p-4 border mt-4 text-center">
+              <h4 class="kids-font mb-2">Daily Streak Tracker</h4>
+              <p class="small text-secondary mb-3">Learn for 15 minutes daily to claim rewards.</p>
+              <div class="streak-badge-large animate-streak justify-content-center mx-auto mb-3" style="max-width: 320px;">
+                <span class="fs-2">🔥</span>
+                <span class="kids-font h4 mb-0 text-white"><span id="streakCount">5</span> Days Streak!</span>
+              </div>
+              <button id="claimRewardBtn" class="btn btn-custom btn-custom-accent">Claim Reward Gold 🪙</button>
+            </div>
+          </div>
+
+          <!-- Daily Mission Panel -->
+          <div class="dashboard-panel d-none" id="panel-mission">
+            <h2 class="kids-font display-6 mb-4 text-gradient-primary">🎯 Today's Quests</h2>
+            
+            <div class="glass-card rounded-4 p-4 border mb-3">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <h4 class="kids-font h5 mb-0">Daily Quest Progress</h4>
+                <span class="badge bg-primary rounded-pill px-3 py-1 font-11" id="questPercent">33% Completed</span>
+              </div>
+              <div class="learning-progress-bar mb-4">
+                <div class="learning-progress-fill" id="questBar" style="width: 33%"></div>
+              </div>
+              
+              <ul class="list-unstyled d-grid gap-3">
+                <li class="p-3 bg-light rounded-3 border d-flex justify-content-between align-items-center">
+                  <div class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" id="q1" checked onclick="toggleQuest(this)">
+                    <label class="form-check-label text-secondary small" for="q1">
+                      Complete 10 minutes of Scratch Academy
+                    </label>
+                  </div>
+                  <span class="text-primary small font-weight-bold">+50 XP</span>
+                </li>
+                <li class="p-3 bg-light rounded-3 border d-flex justify-content-between align-items-center">
+                  <div class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" id="q2" onclick="toggleQuest(this)">
+                    <label class="form-check-label text-secondary small" for="q2">
+                      Pass a quiz question with a perfect score
+                    </label>
+                  </div>
+                  <span class="text-accent small font-weight-bold">+30 XP</span>
+                </li>
+                <li class="p-3 bg-light rounded-3 border d-flex justify-content-between align-items-center">
+                  <div class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" id="q3" onclick="toggleQuest(this)">
+                    <label class="form-check-label text-secondary small" for="q3">
+                      Claim daily learning streak reward
+                    </label>
+                  </div>
+                  <span class="text-success small font-weight-bold">+20 XP</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/student-dashboard.js"></script>
+  
+  <!-- Interactive Quiz Controller -->
+  <script>
+    let currentQuizIndex = 0;
+    let selectedOptionCorrect = null;
+    let selectedBtn = null;
+
+    const quizData = [
+      {
+        num: "Question 1 of 2",
+        question: "Which coding block in Scratch is used to make a character repeat actions forever?",
+        options: [
+          { text: 'A) "move 10 steps" block', correct: false },
+          { text: 'B) "forever" loop block', correct: true },
+          { text: 'C) "when green flag clicked" block', correct: false },
+          { text: 'D) "say Hello" block', correct: false }
+        ],
+        feedback: {
+          emoji: "🎉",
+          title: "Great Job, Wizard!",
+          text: 'You got the correct answer: <strong>"forever" loop block</strong>! You earned <strong>+50 XP</strong>!'
+        }
+      },
+      {
+        num: "Question 2 of 2",
+        question: "If Alex has 3 boxes of coding robots and each box has 4 robots, how many robots does Alex have in total?",
+        options: [
+          { text: 'A) 7 robots', correct: false },
+          { text: 'B) 10 robots', correct: false },
+          { text: 'C) 12 robots', correct: true },
+          { text: 'D) 15 robots', correct: false }
+        ],
+        feedback: {
+          emoji: "🤩",
+          title: "Math Prodigy!",
+          text: 'Superb! 3 times 4 is indeed <strong>12 robots</strong>! You completed the quiz with <strong>+50 XP</strong>!'
+        }
+      }
+    ];
+
+    function selectOption(btn, correct) {
+      // Reset outline classes
+      document.querySelectorAll('.option-btn').forEach(b => {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-outline-primary');
+      });
+      // Highlight selected
+      btn.classList.remove('btn-outline-primary');
+      btn.classList.add('btn-primary');
+      
+      selectedOptionCorrect = correct;
+      selectedBtn = btn;
+      document.getElementById('submitQuizBtn').disabled = false;
+    }
+
+    function checkAnswer() {
+      if (selectedOptionCorrect === null) return;
+      
+      const q = quizData[currentQuizIndex];
+      const box = document.getElementById('quiz-question-box');
+      const feedback = document.getElementById('quiz-feedback-box');
+      
+      if (selectedOptionCorrect) {
+        document.getElementById('feedbackEmoji').textContent = q.feedback.emoji;
+        document.getElementById('feedbackTitle').textContent = q.feedback.title;
+        document.getElementById('feedbackText').innerHTML = q.feedback.text;
+        document.getElementById('feedbackTitle').className = "kids-font text-success";
+      } else {
+        document.getElementById('feedbackEmoji').textContent = "🧐";
+        document.getElementById('feedbackTitle').textContent = "Not quite, Try Again!";
+        document.getElementById('feedbackText').innerHTML = "Don't worry, mistakes help us learn. Go back and check your answer!";
+        document.getElementById('feedbackTitle').className = "kids-font text-danger";
+      }
+      
+      box.classList.add('d-none');
+      feedback.classList.remove('d-none');
+    }
+
+    function nextQuestion() {
+      currentQuizIndex++;
+      const box = document.getElementById('quiz-question-box');
+      const feedback = document.getElementById('quiz-feedback-box');
+      
+      if (currentQuizIndex < quizData.length) {
+        // Load next question
+        const q = quizData[currentQuizIndex];
+        document.getElementById('questionNum').textContent = q.num;
+        document.getElementById('questionText').textContent = q.question;
+        
+        // Load options
+        const optsContainer = document.getElementById('optionsContainer');
+        optsContainer.innerHTML = '';
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = "btn btn-outline-primary text-start rounded-pill py-2 px-3 option-btn";
+          btn.textContent = opt.text;
+          btn.onclick = () => selectOption(btn, opt.correct);
+          optsContainer.appendChild(btn);
+        });
+        
+        document.getElementById('submitQuizBtn').disabled = true;
+        selectedOptionCorrect = null;
+        
+        feedback.classList.add('d-none');
+        box.classList.remove('d-none');
+      } else {
+        // Quiz completed
+        feedback.innerHTML = `
+          <span class="display-3 mb-2 d-block">🏆</span>
+          <h3 class="kids-font text-gradient-primary">Quiz Complete!</h3>
+          <p class="text-secondary small mb-4">You have successfully mastered today's Quizzes! Go check your Achievements tab to view your new badges.</p>
+          <button class="btn btn-custom btn-custom-accent justify-content-center" onclick="restartQuiz()">Restart Quizzes 🔄</button>
+        `;
+      }
+    }
+
+    function restartQuiz() {
+      currentQuizIndex = 0;
+      selectedOptionCorrect = null;
+      
+      const q = quizData[0];
+      document.getElementById('quizContainer').innerHTML = `
+        <div id="quiz-question-box">
+          <span class="badge bg-secondary mb-2" id="questionNum">${q.num}</span>
+          <h4 class="kids-font mb-4" id="questionText">${q.question}</h4>
+          
+          <div class="d-grid gap-3 mb-4" id="optionsContainer">
+            ${q.options.map(opt => `<button class="btn btn-outline-primary text-start rounded-pill py-2 px-3 option-btn" onclick="selectOption(this, ${opt.correct})">${opt.text}</button>`).join('')}
+          </div>
+          
+          <button class="btn btn-custom btn-custom-accent w-100 justify-content-center" id="submitQuizBtn" onclick="checkAnswer()" disabled>Submit Answer 🚀</button>
+        </div>
+        
+        <div id="quiz-feedback-box" class="d-none text-center py-4">
+          <span class="display-3 mb-2 d-block" id="feedbackEmoji">🎉</span>
+          <h3 class="kids-font" id="feedbackTitle">Great Job, Wizard!</h3>
+          <p class="text-secondary small mb-4" id="feedbackText">You got the correct answer: <strong>"forever" loop block</strong>! You earned <strong>+50 XP</strong>!</p>
+          <button class="btn btn-custom btn-custom-primary justify-content-center" id="nextQuizBtn" onclick="nextQuestion()">Next Quiz Question ➡️</button>
+        </div>
+      `;
+    }
+
+    // Daily mission toggle quest logic
+    function toggleQuest(cb) {
+      const quests = document.querySelectorAll('.list-unstyled input[type="checkbox"]');
+      let checkedCount = 0;
+      quests.forEach(q => {
+        if (q.checked) checkedCount++;
+      });
+      
+      const percent = Math.round((checkedCount / quests.length) * 100);
+      document.getElementById('questPercent').textContent = `${percent}% Completed`;
+      document.getElementById('questBar').style.width = `${percent}%`;
+    }
+  </script>
+
+</body>
+</html>

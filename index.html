@@ -1,1 +1,638 @@
-jkoogf
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Engaging and safe online learning platform for kids. Explore courses in mathematics, science, English, coding, and creative learning designed by EdTech specialists.">
+  <title>KidQuest - Online Learning Platform for Kids</title>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <!-- Theme Toggle Handler (loads first to prevent layout flashing) -->
+  <script src="assets/js/theme-toggle.js"></script>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%232563EB%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z%22/><path d=%22m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z%22/><path d=%22M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0%22/><path d=%22M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5%22/></svg>">
+</head>
+
+<body>
+
+  <!-- Navbar Navigation -->
+  <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <svg class="brand-logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+          <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+          <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+          <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+        </svg> KidQuest
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="index.html">Home 1 - Playful Landing</a></li>
+              <li><a class="dropdown-item" href="home-2.html">Home 2 - Home Academy</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="courses.html">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subscription-plans.html">Subscription</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="instructors.html">Instructors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <!-- Theme Toggle Button -->
+          <button class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+            <svg class="sun-icon d-none" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+          </button>
+          <!-- RTL Toggle Button -->
+          <button class="rtl-toggle-btn" aria-label="Toggle RTL layout direction">RTL</button>
+
+          <a href="signup.html" class="btn btn-custom btn-custom-primary">Signup</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <span class="badge bg-subject-coding kids-font px-3 py-2 mb-3 hero-tagline animate-fade-up">🚀 FUN &
+              ENGAGING LESSONS</span>
+            <h1 class="display-4 kids-font hero-main-title mb-3 animate-fade-up">Learning Made Fun.<br><span
+                class="text-gradient-primary">Skills That Last.</span></h1>
+            <p class="lead hero-subtitle mb-4 animate-fade-up">Discover age-appropriate coding, advanced math games,
+              science experiments, and creative arts. Vetted by parents and designed for curious minds.</p>
+            <div class="d-flex flex-wrap gap-3 hero-btn-group animate-fade-up">
+              <a href="courses.html" class="btn btn-custom btn-custom-accent animate-pulse-glow">Explore Courses 🎓</a>
+              <a href="subscription-plans.html" class="btn btn-custom btn-custom-secondary">View Learning Plans</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-image-wrapper">
+          <div class="position-relative">
+            <!-- Floating Achievement Cards -->
+            <div class="floating-card fc-1 animate-float">
+              <span class="fs-4">🏆</span>
+              <div>
+                <strong class="d-block text-dark">Math Wizardry</strong>
+                <span class="small text-muted">Level 5 Completed!</span>
+              </div>
+            </div>
+
+            <div class="floating-card fc-2 animate-float-slow">
+              <span class="fs-4">🔥</span>
+              <div>
+                <strong class="d-block text-dark">Leo's Daily Streak</strong>
+                <span class="small text-muted"><span id="heroStreak">5</span> Days Row!</span>
+              </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
+              alt="Kid learning with tablet device in a creative classroom environment" class="hero-main-img"
+              loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject Categories Section -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="kids-font text-gradient-accent text-uppercase fs-5">Subjects We Teach</span>
+        <h2 class="kids-font display-6">Explore by Subject</h2>
+        <p class="text-secondary max-width-600 mx-auto">Vibrant interactive modules mapped for developmental milestones.
+        </p>
+      </div>
+
+      <div class="row g-4 gsap-card-grid">
+        <!-- Mathematics -->
+        <div class="col-md-4 col-sm-6">
+          <div class="subject-card subject-card-math">
+            <div class="subject-icon-box bg-subject-math">🧮</div>
+            <h3 class="kids-font h4">Mathematics</h3>
+            <p class="small text-secondary">Arithmetic, spatial reasoning, geometry puzzles, and mental math math games.
+            </p>
+            <a href="courses.html?subject=math" class="stretched-link kids-font">Learn Math →</a>
+          </div>
+        </div>
+        <!-- Science -->
+        <div class="col-md-4 col-sm-6">
+          <div class="subject-card subject-card-science">
+            <div class="subject-icon-box bg-subject-science">🧪</div>
+            <h3 class="kids-font h4">Science</h3>
+            <p class="small text-secondary">Space physics, biology foundations, earth science, and safe home
+              experiments.</p>
+            <a href="courses.html?subject=science" class="stretched-link kids-font">Learn Science →</a>
+          </div>
+        </div>
+        <!-- English -->
+        <div class="col-md-4 col-sm-6">
+          <div class="subject-card subject-card-english">
+            <div class="subject-icon-box bg-subject-english">📚</div>
+            <h3 class="kids-font h4">English</h3>
+            <p class="small text-secondary">Creative reading comprehension, phonics milestones, grammar, and writing
+              guides.</p>
+            <a href="courses.html?subject=english" class="stretched-link kids-font">Learn English →</a>
+          </div>
+        </div>
+        <!-- Coding -->
+        <div class="col-md-4 col-sm-6">
+          <div class="subject-card subject-card-coding">
+            <div class="subject-icon-box bg-subject-coding">💻</div>
+            <h3 class="kids-font h4">Coding</h3>
+            <p class="small text-secondary">Scratch block mechanics, HTML/CSS essentials, and beginner Python loops.</p>
+            <a href="courses.html?subject=coding" class="stretched-link kids-font">Learn Coding →</a>
+          </div>
+        </div>
+        <!-- Creative Learning -->
+        <div class="col-md-4 col-sm-6">
+          <div class="subject-card subject-card-creative">
+            <div class="subject-icon-box bg-subject-creative">🎨</div>
+            <h3 class="kids-font h4">Creative Learning</h3>
+            <p class="small text-secondary">Vivid art design thinking, storytelling exercises, and digital design
+              fundamentals.</p>
+            <a href="courses.html?subject=creative" class="stretched-link kids-font">Learn Creative →</a>
+          </div>
+        </div>
+        <!-- Help/FAQ teaser -->
+        <div class="col-md-4 col-sm-6">
+          <div class="subject-card d-flex flex-column justify-content-center align-items-center bg-light">
+            <h4 class="kids-font text-gradient-primary">Need Advice?</h4>
+            <p class="small text-secondary mb-3">Not sure where to begin? Get recommendations matched for your kid.</p>
+            <a href="contact.html" class="btn btn-custom btn-custom-secondary btn-sm">Ask a Tutor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Age-based Learning Paths Section -->
+  <section class="py-5 bg-light transition-all">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <span class="kids-font text-gradient-primary text-uppercase fs-5">Tailored Curriculums</span>
+        <h2 class="kids-font display-6">Age-Appropriate Learning Paths</h2>
+        <p class="text-secondary max-width-600 mx-auto">Click below to discover courses optimized for specific
+          development categories.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-3 col-sm-6 text-center">
+          <a href="courses.html?age=4-6"
+            class="d-block p-4 bg-white rounded-4 shadow-sm hover-lift text-decoration-none">
+            <span class="fs-1 d-block mb-2">🧸</span>
+            <h4 class="kids-font text-primary mb-1">Ages 4 - 6</h4>
+            <span class="text-secondary small">Early Math & Creative Projects</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6 text-center">
+          <a href="courses.html?age=7-9"
+            class="d-block p-4 bg-white rounded-4 shadow-sm hover-lift text-decoration-none">
+            <span class="fs-1 d-block mb-2">🎨</span>
+            <h4 class="kids-font text-secondary mb-1">Ages 7 - 9</h4>
+            <span class="text-secondary small">Science Foundations & Scratch Coding</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6 text-center">
+          <a href="courses.html?age=10-12"
+            class="d-block p-4 bg-white rounded-4 shadow-sm hover-lift text-decoration-none">
+            <span class="fs-1 d-block mb-2">🧬</span>
+            <h4 class="kids-font text-success mb-1">Ages 10 - 12</h4>
+            <span class="text-secondary small">Writing Skills & Computational Logic</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6 text-center">
+          <a href="courses.html?age=13-15"
+            class="d-block p-4 bg-white rounded-4 shadow-sm hover-lift text-decoration-none">
+            <span class="fs-1 d-block mb-2">💻</span>
+            <h4 class="kids-font text-gradient-accent mb-1">Ages 13 - 15</h4>
+            <span class="text-secondary small">Python Syntax & Advanced Coding</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured / Enrolled Courses Section -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+        <div>
+          <span class="kids-font text-gradient-primary text-uppercase fs-5">Active Catalog</span>
+          <h2 class="kids-font display-6 mb-0">Featured Courses</h2>
+        </div>
+        <a href="courses.html" class="btn btn-custom btn-custom-secondary mt-3 mt-sm-0">View All Courses →</a>
+      </div>
+
+      <div class="row g-4 gsap-card-grid justify-content-center">
+        <!-- Course Card 1 (Coding) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="course-card">
+            <div class="course-image-box">
+              <span class="course-tag bg-subject-coding">Coding</span>
+              <span class="course-age-badge">Ages 7-9</span>
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+                alt="Coding games on screen representing Scratch blocks" loading="lazy">
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <span>⚡ Beginner</span>
+                <span class="course-rating">⭐ 4.9 (120 reviews)</span>
+              </div>
+              <h3 class="course-title"><a href="course-details.html" class="text-dark">Block Academy: Coding for
+                  Beginners</a></h3>
+              <p class="small text-secondary flex-grow-1">Learn to build games, animations, and interactive stories
+                while learning fundamental computational structures.</p>
+
+              <!-- Progress System UI (Teaser) -->
+              <div class="mt-3">
+                <div class="d-flex justify-content-between small text-secondary">
+                  <span>Progress</span>
+                  <strong>60%</strong>
+                </div>
+                <div class="learning-progress-bar">
+                  <div class="learning-progress-fill" style="width: 60%"></div>
+                </div>
+              </div>
+
+              <div class="course-instructor">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80"
+                  alt="Instructor Sarah Miller">
+                <span class="small text-secondary">Sarah Miller, Lead EdTech Architect</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0 text-primary kids-font">$19 <small class="text-muted">/mo</small></span>
+                <a href="course-details.html" class="btn btn-custom btn-custom-primary btn-sm">Enroll Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Card 2 (Science) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="course-card">
+            <div class="course-image-box">
+              <span class="course-tag bg-subject-science">Science</span>
+              <span class="course-age-badge">Ages 10-12</span>
+              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80"
+                alt="Young scientist working with magnifying glass" loading="lazy">
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <span>⚡ Intermediate</span>
+                <span class="course-rating">⭐ 4.8 (85 reviews)</span>
+              </div>
+              <h3 class="course-title"><a href="course-details.html" class="text-dark">Fun Science Experiments at
+                  Home</a></h3>
+              <p class="small text-secondary flex-grow-1">Perform exciting and safe chemistry and physics experiments at
+                home using household materials.</p>
+
+              <!-- Progress System UI (Teaser) -->
+              <div class="mt-3">
+                <div class="d-flex justify-content-between small text-secondary">
+                  <span>Progress</span>
+                  <strong>10%</strong>
+                </div>
+                <div class="learning-progress-bar">
+                  <div class="learning-progress-fill" style="width: 10%"></div>
+                </div>
+              </div>
+
+              <div class="course-instructor">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"
+                  alt="Instructor Dr. James Vance">
+                <span class="small text-secondary">Dr. James Vance, Physics PhD</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0 text-primary kids-font">$29 <small class="text-muted">/mo</small></span>
+                <a href="course-details.html" class="btn btn-custom btn-custom-primary btn-sm">Enroll Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Card 3 (Math) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="course-card">
+            <div class="course-image-box">
+              <span class="course-tag bg-subject-math">Math</span>
+              <span class="course-age-badge">Ages 4-6</span>
+              <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80"
+                alt="Vibrant learning toys representing basic math calculations" loading="lazy">
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <span>⚡ Beginner</span>
+                <span class="course-rating">⭐ 5.0 (94 reviews)</span>
+              </div>
+              <h3 class="course-title"><a href="course-details.html" class="text-dark">Math Puzzle Land: Early Math
+                  Arithmetic</a></h3>
+              <p class="small text-secondary flex-grow-1">Vibrant levels that introduce addition, subtraction, shape
+                matching, and basic logical groupings.</p>
+
+              <!-- Progress System UI (Teaser - Completed example) -->
+              <div class="mt-3">
+                <div class="d-flex justify-content-between small text-secondary">
+                  <span>Progress</span>
+                  <strong class="text-success">Completed!</strong>
+                </div>
+                <div class="learning-progress-bar">
+                  <div class="learning-progress-fill" style="width: 100%; background: var(--success);"></div>
+                </div>
+              </div>
+
+              <div class="course-instructor">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80"
+                  alt="Instructor Miss Emily Watson">
+                <span class="small text-secondary">Emily Watson, Early Education Specialist</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0 text-primary kids-font">$9 <small class="text-muted">/mo</small></span>
+                <a href="course-details.html" class="btn btn-custom btn-custom-primary btn-sm">Enroll Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parent Trust & Safety Section -->
+  <section class="container py-5">
+    <div class="safety-section gsap-reveal">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="kids-font text-gradient-primary text-uppercase fs-5">Trust & Protection</span>
+          <h2 class="kids-font display-6 mb-3">Safe & Controlled Learning</h2>
+          <p class="text-secondary mb-4">We are dedicated to safeguarding children's online education. Every lesson,
+            video placeholder, and community feature is heavily audited, private, and customizable by parents.</p>
+
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="safety-badge">
+                <div class="safety-badge-icon">🔒</div>
+                <div>
+                  <strong class="d-block text-dark small">Encrypted Accounts</strong>
+                  <span class="small text-muted font-11">Verified Parent Portal Only</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-badge">
+                <div class="safety-badge-icon">🛡️</div>
+                <div>
+                  <strong class="d-block text-dark small">No Ad Trackers</strong>
+                  <span class="small text-muted font-11">Ad-Free Safe Space</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-badge">
+                <div class="safety-badge-icon">👨‍👩‍👧</div>
+                <div>
+                  <strong class="d-block text-dark small">Activity Monitoring</strong>
+                  <span class="small text-muted font-11">Review child progress easily</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="safety-badge">
+                <div class="safety-badge-icon">🌟</div>
+                <div>
+                  <strong class="d-block text-dark small">Human Moderated</strong>
+                  <span class="small text-muted font-11">Vetted instructors only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <div class="p-4 bg-white rounded-4 shadow-sm border">
+            <h4 class="kids-font text-primary mb-3">Parent Dashboard Overview</h4>
+            <p class="text-secondary small mb-4">Take a look inside the portal that allows you to set time limits and
+              generate weekly email reports.</p>
+            <a href="signup.html?type=parent" class="btn btn-custom btn-custom-accent w-100">Setup Parent Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="kids-font text-gradient-accent text-uppercase fs-5">Success Stories</span>
+        <h2 class="kids-font display-6">Loved by Parents & Children</h2>
+        <p class="text-secondary max-width-600 mx-auto">Read how families are utilizing KidQuest to supplement
+          schoolwork and coding skills.</p>
+      </div>
+
+      <div class="row g-4 gsap-card-grid justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <p class="text-secondary italic mb-4">"My daughter Emma has learned basic addition and phonic milestones on
+              KidQuest. She asks to play the math games every single afternoon!"</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80"
+                alt="Parent Laura T." class="testimonial-avatar" loading="lazy">
+              <div>
+                <strong class="d-block">Laura T.</strong>
+                <span class="small text-muted">Parent of Emma (Age 6)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <p class="text-secondary italic mb-4">"The parent monitoring tools are outstanding. I can block certain
+              categories and set screen limits directly. Plus, the Scratch coding courses are very engaging."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"
+                alt="Parent Marcus K." class="testimonial-avatar" loading="lazy">
+              <div>
+                <strong class="d-block">Marcus K.</strong>
+                <span class="small text-muted">Parent of Leo (Age 9)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <p class="text-secondary italic mb-4">"KidQuest makes homeschooling so much easier! The physics science
+              experiments are safe and use everyday items. Highly recommend the family tier."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80"
+                alt="Parent Sarah D." class="testimonial-avatar" loading="lazy">
+              <div>
+                <strong class="d-block">Sarah D.</strong>
+                <span class="small text-muted">Homeschooling Parent</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="container py-5">
+    <div class="cta-gradient-card rounded-5 p-5 text-center gsap-reveal">
+      <h2 class="display-5 kids-font text-white mb-3">Start Your Learning Adventure Today!</h2>
+      <p class="lead text-white-50 mb-4 mx-auto max-width-600">Join thousands of kids discovering early math,
+        programming logic, and physics basic concepts in an immersive safe gaming interface.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="signup.html" class="btn btn-custom btn-custom-accent">Create Free Account 🚀</a>
+        <a href="subscription-plans.html" class="btn btn-custom btn-custom-secondary"
+          style="border-color: #FFFFFF; color: #FFFFFF;">Subscription Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="custom-footer">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-4">
+          <a class="navbar-brand text-white d-flex align-items-center gap-2 mb-3" href="index.html">
+            <svg class="brand-logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+              <path
+                d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+            </svg> KidQuest
+          </a>
+          <p class="small mb-4">EdTech learning platform engineered specifically for kids. Certified safe interfaces
+            focusing on coding, math wizardry, science biology, English phonics, and creative storytelling.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon-btn" aria-label="Facebook">📘</a>
+            <a href="#" class="social-icon-btn" aria-label="Twitter">🐦</a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube">📺</a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram">📸</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-2 col-6">
+          <h5>Subjects</h5>
+          <ul class="list-unstyled">
+            <li><a href="courses.html?subject=math" class="custom-footer-link">Mathematics</a></li>
+            <li><a href="courses.html?subject=science" class="custom-footer-link">Science Labs</a></li>
+            <li><a href="courses.html?subject=english" class="custom-footer-link">English Phonics</a></li>
+            <li><a href="courses.html?subject=coding" class="custom-footer-link">Coding basics</a></li>
+            <li><a href="courses.html?subject=creative" class="custom-footer-link">Creative Art</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-2 col-6">
+          <h5>For Parents</h5>
+          <ul class="list-unstyled">
+            <li><a href="subscription-plans.html" class="custom-footer-link">Pricing Plans</a></li>
+            <li><a href="login.html?type=parent" class="custom-footer-link">Parent Dashboard</a></li>
+            <li><a href="blog.html" class="custom-footer-link">Parent Guides</a></li>
+            <li><a href="contact.html" class="custom-footer-link">Safety Audits</a></li>
+            <li><a href="404.html" class="custom-footer-link">FAQ Page</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <h5>Parent Resources & Newsletter</h5>
+          <p class="small mb-3">Sign up for our parent guide on screen time management and learning games resources.</p>
+          <form id="newsletterForm" class="row g-2">
+            <div class="col-8">
+              <input type="email" class="form-control rounded-pill px-3 py-2" placeholder="Parent email address"
+                required aria-label="Parent email address">
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-custom btn-custom-accent w-100 p-2 text-center fs-6">Join</button>
+            </div>
+          </form>
+          <div class="payment-badges">
+            <span class="payment-badge">VISA</span>
+            <span class="payment-badge">MasterCard</span>
+            <span class="payment-badge">PayPal</span>
+            <span class="payment-badge">SSL Secured</span>
+          </div>
+        </div>
+      </div>
+
+      <hr style="border-color: rgba(255,255,255,0.08);">
+
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <p class="small mb-0 text-muted">&copy; 2026 KidQuest EdTech platform. All rights reserved.</p>
+        <div class="d-flex gap-3 small text-muted mt-2 mt-sm-0">
+          <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
+          <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Custom JS Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+
+</body>
+
+</html>
