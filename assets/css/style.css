@@ -943,7 +943,7 @@ body.dark-mode .rtl-toggle-btn:hover {
 }
 
 /* Responsive Overrides */
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   .mega-menu {
     position: static;
     transform: none;
@@ -970,7 +970,25 @@ body.dark-mode .rtl-toggle-btn:hover {
   }
 
   .floating-card {
-    display: none !important;
+    display: flex !important;
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+  .fc-1 {
+    left: 5px !important;
+    top: 10% !important;
+  }
+  .fc-2 {
+    right: 5px !important;
+    bottom: 10% !important;
+  }
+  html[dir="rtl"] .fc-1 {
+    left: auto !important;
+    right: 5px !important;
+  }
+  html[dir="rtl"] .fc-2 {
+    right: auto !important;
+    left: 5px !important;
   }
 }
 
@@ -1141,4 +1159,80 @@ strong,
 
 .custom-footer .brand-logo-icon {
   color: var(--primary) !important;
+}
+
+/* Authentication pages top controls responsive styling */
+.auth-controls-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  z-index: 1050;
+}
+
+@media (max-width: 767.98px) {
+  .auth-controls-wrapper {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    padding: 0 !important;
+  }
+  
+  #loginFormSection,
+  #signupFormSection {
+    margin-top: 40px !important;
+  }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: #ffffff !important;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.back-to-top:hover {
+  background-color: var(--primary-hover, #1e40af);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+html[dir="rtl"] .back-to-top {
+  right: auto;
+  left: 30px;
+}
+@media (max-width: 767.98px) {
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+  html[dir="rtl"] .back-to-top {
+    right: auto;
+    left: 20px;
+  }
 }

@@ -109,9 +109,13 @@ body.dark-mode .price-toggle-wrapper {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
+body.dark-mode .price-toggle-btn {
+  color: #FFFFFF !important;
+}
+
 body.dark-mode .price-toggle-btn.active {
   background-color: var(--primary);
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 body.dark-mode .safety-section {
@@ -125,16 +129,22 @@ body.dark-mode .safety-badge {
 body.dark-mode input,
 body.dark-mode select,
 body.dark-mode textarea,
-body.dark-mode .form-control {
+body.dark-mode .form-control,
+body.dark-mode .form-select {
   background-color: var(--card-surface) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: var(--text-primary) !important;
 }
 
+body.dark-mode .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
 body.dark-mode input:focus,
 body.dark-mode select:focus,
 body.dark-mode textarea:focus,
-body.dark-mode .form-control:focus {
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
   background-color: var(--card-surface) !important;
   color: var(--text-primary) !important;
   border-color: var(--highlight) !important;
@@ -289,8 +299,62 @@ body.dark-mode .table td {
 
 /* Dark Mode Footer Brand Alignment */
 body.dark-mode .custom-footer .navbar-brand {
-  color: #FFFFFF !important;
+  color: var(--primary) !important;
 }
 body.dark-mode .custom-footer .brand-logo-icon {
-  color: #FFFFFF !important;
+  color: var(--primary) !important;
+}
+
+/* Dark Mode General Typography and Components */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode .list-group-item {
+  color: var(--text-primary) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .border {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Dark Mode Dropdown Customizations */
+body.dark-mode .dropdown-menu {
+  background-color: var(--card-surface) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .dropdown-item {
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--highlight) !important;
+}
+
+body.dark-mode .dropdown-header {
+  color: var(--text-secondary) !important;
+}
+
+body.dark-mode .dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Dark Mode Social Login buttons override */
+body.dark-mode .btn-light {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .btn-light:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-primary) !important;
 }
