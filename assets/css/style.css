@@ -1090,6 +1090,20 @@ html[dir="rtl"] .btn-custom svg {
   transform: scaleX(-1);
 }
 
+/* RTL Password Field Toggle Positioning */
+html[dir="rtl"] .position-relative .form-control.pe-5 {
+  padding-right: 1rem !important;
+  padding-left: 3rem !important;
+}
+
+html[dir="rtl"] .position-relative .btn.position-absolute.end-0 {
+  right: auto !important;
+  left: 0 !important;
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+
 /* Custom CTA Gradient Card */
 .cta-gradient-card {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
